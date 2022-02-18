@@ -7,9 +7,9 @@ export default class DDUtils {
     static getProjectTitle() {
         const user: UserType = DEFAULT_USER
         if (user && user.displayName) {
-            return user.displayName.split(' ')[0] + "'s Project"
+            return user.displayName.split(' ')[0] + "'s ProjectStyles"
         } else {
-            return 'Anonymous Project'
+            return 'Anonymous ProjectStyles'
         }
     }
 

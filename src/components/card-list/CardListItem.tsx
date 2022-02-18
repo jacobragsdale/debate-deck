@@ -1,15 +1,14 @@
 import React from 'react'
 import { Typography, Card, Chip, Link } from '@material-ui/core'
 import { CardType } from '../../state/dataTypes'
+import { cardListItemStyles } from '../../style/card-list/cardListItemStyles'
 
 interface CardListItemProps {
     card: CardType
-    classes: any
 }
-export const CardListItem: React.FC<CardListItemProps> = ({
-    card,
-    classes,
-}) => {
+
+export const CardListItem: React.FC<CardListItemProps> = ({ card }) => {
+    const classes = cardListItemStyles();
     return (
         <Card variant="outlined" key={card.id} className={classes.card}>
             <Typography variant="h5" className={classes.cardTitle}>

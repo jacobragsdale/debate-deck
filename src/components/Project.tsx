@@ -2,34 +2,13 @@ import React, { useEffect } from 'react'
 import { CardList } from './card-list/CardList'
 import { SideBar } from './SideBar'
 import { Header } from './Header'
-import { makeStyles } from '@material-ui/core/styles'
 import { Hidden } from '@material-ui/core'
-import DDUtils from './DDUtils'
 import { useDispatch } from 'react-redux'
 import DataActions from '../state/DataActions'
-
-const theme = DDUtils.getProjectTheme()
-
-const useStyles = makeStyles({
-    root: {
-        padding: theme.spacing(0),
-        display: 'flex',
-        flexDirection: 'row',
-        backgroundColor: theme.palette.background.default,
-    },
-    sideBar: {
-        minWidth: 190,
-        margin: theme.spacing(10, 1, 1, 1),
-    },
-    cardList: {
-        margin: theme.spacing(10, 1, 1, 1),
-        flexGrow: 1,
-        minWidth: 350,
-    },
-})
+import { projectStyles } from '../style/projectStyles'
 
 export const Project: React.FC = () => {
-    const classes = useStyles()
+    const classes = projectStyles();
     const dispatch = useDispatch<any>()
 
     useEffect(() => {
