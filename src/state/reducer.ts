@@ -1,8 +1,10 @@
 import { ACTION_TYPES } from './actionTypes'
-import { CardType } from './dataTypes'
+import { CardType, StateType, TagType } from './dataTypes';
 
-const initialState = {
+const initialState: StateType = {
     cards: [],
+    searchString: '',
+    tags: []
 }
 
 export type ActionType = {
@@ -11,7 +13,7 @@ export type ActionType = {
 }
 
 export const reducer = (
-    state: typeof initialState = initialState,
+    state: StateType = initialState,
     action: ActionType
 ) => {
     switch (action.type) {
@@ -27,10 +29,26 @@ export const reducer = (
                     return card.id !== action.payload.id
                 }),
             }
-        case ACTION_TYPES.CLEAR_CARDS:
+        case ACTION_TYPES.STORE_SEARCH_STRING:
             return {
                 ...state,
-                cards: [],
+                searchString: action.payload
+            }
+        case ACTION_TYPES.STORE_TAG:
+            let hasTag = false;
+            let newTags: TagType[] = state.tags.slice();
+            for (let i = 0; i < newTags.length; i++) {
+                if (newTags[i].label === action.payload.label) {
+                    newTags[i] = action.payload;
+                    hasTag = true;
+                }
+            }
+            if (!hasTag) {
+                newTags = newTags.concat(action.payload);
+            }
+            return {
+                ...state,
+                tags: newTags
             }
         default:
             return state

@@ -1,6 +1,7 @@
-import { CardType } from './dataTypes'
+import { CardType, TagType } from './dataTypes';
 import { ACTION_TYPES } from './actionTypes'
 
+//this class is used to fetch and store things to redux
 export default class ReduxActions {
     static storeCards(card: CardType[]) {
         return {
@@ -16,9 +17,17 @@ export default class ReduxActions {
         }
     }
 
-    static clearCards() {
+    static storeSearchString(search: string) {
         return {
-            type: ACTION_TYPES.CLEAR_CARDS,
+            type: ACTION_TYPES.STORE_SEARCH_STRING,
+            payload: search
+        }
+    }
+
+    static storeTag(tag: TagType) {
+        return {
+            type: ACTION_TYPES.STORE_TAG,
+            payload: tag
         }
     }
 }

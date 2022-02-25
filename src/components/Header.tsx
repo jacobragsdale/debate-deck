@@ -14,9 +14,16 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import { useLocation } from 'react-router-dom'
 import { headerStyles } from '../style/headerStyles'
 import DDUtils from './DDUtils'
+import { useDispatch } from 'react-redux';
+import ReduxActions from '../state/ReduxActions';
 
 export const Header: React.FC = () => {
+    const dispatch = useDispatch<any>();
     const classes = headerStyles();
+
+    const handleSearch = (searchString: string) => {
+        dispatch(ReduxActions.storeSearchString(searchString));
+    }
 
     return (
         <header className={classes.root}>
@@ -45,6 +52,9 @@ export const Header: React.FC = () => {
                         <InputBase
                             placeholder="Search"
                             className={classes.searchInput}
+                            onChange={(e) => {
+                                handleSearch(e.target.value);
+                            }}
                         />
                     </Box>
                     <div className={classes.grow} />
