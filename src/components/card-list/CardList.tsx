@@ -5,8 +5,13 @@ import { CardListItem } from './CardListItem'
 import { CardType } from '../../state/dataTypes'
 import { useSelector } from 'react-redux'
 import { cardListStyles } from '../../style/card-list/cardListStyles'
+import { CardListUtils } from './CardListUtils';
 
-export const CardList: React.FC = () => {
+interface CardListProps {
+    searchString: string
+}
+
+export const CardList: React.FC<CardListProps> = ({searchString}) => {
     const classes = cardListStyles();
 
     // get cards from redux
@@ -19,7 +24,7 @@ export const CardList: React.FC = () => {
             <Typography variant="h3" className={classes.projectTitle}>
                 {DDUtils.getProjectTitle()}
             </Typography>
-            {cards.map((card) => (
+            {cards.filter((card) => CardListUtils.searchCard(searchString, card)).map((card) => (
                 <CardListItem card={card} key={card.id} />
             ))}
         </div>
