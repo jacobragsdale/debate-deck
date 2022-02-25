@@ -12,8 +12,9 @@ export const Project: React.FC = () => {
     const dispatch = useDispatch<any>()
 
     useEffect(() => {
-        dispatch(DataActions.fetchCards())
-    }, [dispatch])
+        dispatch(DataActions.fetchCards());
+        dispatch(DataActions.fetchTags());
+    }, [dispatch]);
 
     return (
         <div className={classes.root}>
