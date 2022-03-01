@@ -1,6 +1,7 @@
 import ReduxActions from './ReduxActions'
 import { mockCards } from './mockData/mockCards';
 import { mockTags } from './mockData/mockTags';
+import { CardType } from './dataTypes';
 
 // when back end is created, api calls will be made here
 // to fetch / store things in the database
@@ -8,7 +9,9 @@ import { mockTags } from './mockData/mockTags';
 export default class DataActions {
 
     static fetchCards = () => (dispatch: any) => {
-        dispatch(ReduxActions.storeCards(mockCards))
+        mockCards.forEach((card) => {
+            dispatch(ReduxActions.storeCard(card))
+        })
     }
 
     static fetchTags = () => (dispatch: any) => {
@@ -20,5 +23,10 @@ export default class DataActions {
     static login = (email: string, password: string) => (dispatch: any): boolean => {
         dispatch(ReduxActions.storeUser('temp'));
         return true;
+    }
+
+    static postCard = (card: CardType) => (dispatch: any) => {
+        //this will dispatch the data to the redux store
+        dispatch(ReduxActions.storeCard(card))
     }
 }
