@@ -12,22 +12,25 @@ export const CardListItem: React.FC<CardListItemProps> = ({ card }) => {
     return (
         <Card variant="outlined" key={card.id} className={classes.card}>
             <Typography variant="h5" className={classes.cardTitle}>
-                {card.tag}
+                {card.title}
             </Typography>
             <div className={classes.information}>
                 <div className={classes.leftPanel}>
                     <div className={classes.citation}>
                         <Typography variant="body1">
                             <b>
-                                {`${card.authors[0] && card.authors[0]} ${
-                                    card.time.year
-                                }`}
+                                {
+                                    card.authors && card.authors[0] &&
+                                    `${card.authors[0]} ${
+                                        card.time.year
+                                    }`
+                                }
                             </b>
                         </Typography>
                     </div>
                     <div className={classes.citation}>
                         <Typography variant="body1">
-                            {card.authors.join(' and ')}
+                            {card.authors?.join(' and ')}
                         </Typography>
                     </div>
                     <div className={classes.citation}>
@@ -49,7 +52,7 @@ export const CardListItem: React.FC<CardListItemProps> = ({ card }) => {
                         </Typography>
                     </div>
                     <div className={classes.citation}>
-                        {card.tags.map((tag) => (
+                        {card.tags?.map((tag) => (
                             <Chip
                                 variant="outlined"
                                 size="small"

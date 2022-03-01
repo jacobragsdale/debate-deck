@@ -4,7 +4,7 @@ export class CardListUtils {
     static searchCard = (searchString: string, card: CardType): boolean => {
         searchString = searchString.toUpperCase();
         if (
-            card.tag.toUpperCase().includes(searchString) ||
+            card.title.toUpperCase().includes(searchString) ||
             card.publisher.toUpperCase().includes(searchString) ||
             card.articleTitle.toUpperCase().includes(searchString) ||
             card.quote.toUpperCase().includes(searchString)

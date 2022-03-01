@@ -3,7 +3,7 @@ import { ACTION_TYPES } from './actionTypes'
 
 //this class is used to fetch and store things to redux
 export default class ReduxActions {
-    static storeCards(card: CardType[]) {
+    static storeCard(card: CardType) {
         return {
             type: ACTION_TYPES.STORE_CARD,
             payload: card,

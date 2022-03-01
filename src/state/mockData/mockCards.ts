@@ -3,7 +3,7 @@ import { CardType } from '../dataTypes';
 export const mockCards: CardType[] = [
     {
         id: 1,
-        tag: 'Example Card 1',
+        title: 'Example Card 1',
         authors: ['Yuras Karmanau', 'Jim Heintz'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Associate Press',
@@ -14,7 +14,7 @@ export const mockCards: CardType[] = [
     },
     {
         id: 2,
-        tag: 'Example Card 2',
+        title: 'Example Card 2',
         authors: ['Christian Radnedge'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Reuters',
@@ -25,7 +25,7 @@ export const mockCards: CardType[] = [
     },
     {
         id: 3,
-        tag: 'Example Card 3',
+        title: 'Example Card 3',
         authors: ['Jacques Billeaud', 'Luis Andres Henao'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Associate Press',
@@ -36,7 +36,7 @@ export const mockCards: CardType[] = [
     },
     {
         id: 4,
-        tag: 'Example Card 4',
+        title: 'Example Card 4',
         authors: ['Mark Gleeson'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Reuters',
@@ -47,7 +47,7 @@ export const mockCards: CardType[] = [
     },
     {
         id: 5,
-        tag: 'Example Card 5',
+        title: 'Example Card 5',
         authors: ['Gary Brooker', 'Dean Jennings', 'Greg Meyers', 'Malathi Gundapuneni'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Fox News',
@@ -58,7 +58,7 @@ export const mockCards: CardType[] = [
     },
     {
         id: 6,
-        tag: 'Example Card 6',
+        title: 'Example Card 6',
         authors: ['Melissa Roberto'],
         time: { month: 'May', day: 1, year: 2020 },
         publisher: 'Fox News',
