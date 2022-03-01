@@ -20,6 +20,7 @@ export type TagType = {
 }
 
 export type StateType = {
+    user: any //TODO: determine user type
     cards: CardType[],
     searchString: string,
     tags: TagType[]

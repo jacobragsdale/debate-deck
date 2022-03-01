@@ -4,7 +4,8 @@ import { CardType, StateType, TagType } from './dataTypes';
 const initialState: StateType = {
     cards: [],
     searchString: '',
-    tags: []
+    tags: [],
+    user: null
 }
 
 export type ActionType = {
@@ -49,6 +50,11 @@ export const reducer = (
             return {
                 ...state,
                 tags: newTags
+            }
+        case ACTION_TYPES.STORE_USER:
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state

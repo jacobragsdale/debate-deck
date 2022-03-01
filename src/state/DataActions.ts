@@ -16,4 +16,9 @@ export default class DataActions {
             dispatch(ReduxActions.storeTag(tag));
         })
     }
+
+    static login = (email: string, password: string) => (dispatch: any): boolean => {
+        dispatch(ReduxActions.storeUser('temp'));
+        return true;
+    }
 }
