@@ -9,7 +9,7 @@ import { projectStyles } from '../style/projectStyles'
 
 export const Project: React.FC = () => {
     const classes = projectStyles();
-    const dispatch = useDispatch<any>()
+    const dispatch = useDispatch<any>();
 
     useEffect(() => {
         dispatch(DataActions.fetchCards());

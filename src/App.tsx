@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from '@reduxjs/toolkit'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { SignIn } from './components/SignIn'

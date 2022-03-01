@@ -30,4 +30,11 @@ export default class ReduxActions {
             payload: tag
         }
     }
+
+    static storeUser(user: any) {
+        return {
+            type: ACTION_TYPES.STORE_USER,
+            payload: user
+        }
+    }
 }
