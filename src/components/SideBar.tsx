@@ -6,14 +6,14 @@ import {
     ListItem,
     Checkbox,
     ListItemText,
-    ListItemIcon,
-} from '@material-ui/core'
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined'
-import { sideBarStyles } from '../style/sideBarStyles'
+    ListItemIcon
+} from '@material-ui/core';
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import { sideBarStyles } from '../style/sideBarStyles';
 import { TagType } from '../state/dataTypes';
 import { useDispatch, useSelector } from 'react-redux';
 import ReduxActions from '../state/ReduxActions';
-import { NewCardModal } from './NewCardModal';
+import { AddCardModal } from './AddCardModal';
 
 export const SideBar: React.FC = () => {
     const dispatch = useDispatch<any>();
@@ -31,7 +31,7 @@ export const SideBar: React.FC = () => {
     });
 
     const onCheckboxClick = (label: string, isChecked: boolean) => {
-        const newTag: TagType = {label: label, isChecked: isChecked};
+        const newTag: TagType = { label: label, isChecked: isChecked };
         dispatch(ReduxActions.storeTag(newTag));
     };
 
@@ -43,19 +43,19 @@ export const SideBar: React.FC = () => {
     return (
         <div className={classes.root}>
             <Button
-                variant="outlined"
-                size="large"
+                variant='outlined'
+                size='large'
                 startIcon={<AddCircleOutlineOutlinedIcon />}
                 className={classes.addIcon}
                 onClick={onAddCard}
             >
                 Add Card
             </Button>
-            <NewCardModal isOpen={modelIsOpen} setIsOpen={setModalIsOpen}>
+            <AddCardModal isOpen={modelIsOpen} setIsOpen={setModalIsOpen}>
 
-            </NewCardModal>
+            </AddCardModal>
             <div className={classes.filter}>
-                <Typography variant="h6" className={classes.filterTitle}>
+                <Typography variant='h6' className={classes.filterTitle}>
                     {' '}
                     Filter{' '}
                 </Typography>
@@ -81,5 +81,5 @@ export const SideBar: React.FC = () => {
                 </List>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -3,15 +3,15 @@ export type UserType = {
 }
 
 export type CardType = {
-    id: string | number
-    title: string
-    authors?: string[]
+    id: string,
+    title: string,
+    authors?: string[],
     //the question mark makes the time object unnecessary
-    time?: any //TODO: change this to datetime format
-    publisher?: string
-    articleTitle?: string
-    link?: string
-    tags?: string[]
+    time?: any, //TODO: change this to datetime format
+    publisher?: string,
+    articleTitle?: string,
+    link?: string,
+    tags?: string[],
     quote: string
 }
 

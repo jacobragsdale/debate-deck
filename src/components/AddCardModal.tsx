@@ -2,26 +2,21 @@ import React, { useState } from 'react';
 import {
     Typography,
     Button,
-    List,
-    ListItem,
-    Checkbox,
-    ListItemText,
-    ListItemIcon, Box, Modal, Dialog, TextField
+    Box, Dialog, TextField
 } from '@material-ui/core';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined'
-import { sideBarStyles } from '../style/sideBarStyles'
-import { CardType, TagType } from '../state/dataTypes';
-import { useDispatch, useSelector } from 'react-redux';
-import ReduxActions from '../state/ReduxActions';
+import { sideBarStyles } from '../style/sideBarStyles';
+import { CardType } from '../state/dataTypes';
+import { useDispatch } from 'react-redux';
 import DataActions from '../state/DataActions';
+import { v4 as uuid } from 'uuid';
 
 // This checks that data passed to this component is only a boolean value
-interface NewCardModalProps {
+interface AddCardModalProps {
     isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void // react functions to set state return void. or maybe
+    setIsOpen: (isOpen: boolean) => void; // react functions to set state return void. or maybe
 }
 
-export const NewCardModal: React.FC<NewCardModalProps> = ({isOpen, setIsOpen}) => {
+export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen }) => {
     const dispatch = useDispatch<any>();
     const classes = sideBarStyles();
 
@@ -44,10 +39,10 @@ export const NewCardModal: React.FC<NewCardModalProps> = ({isOpen, setIsOpen}) =
 
     const onSubmit = () => {
         // create a CardType object
-        console.log({authors});
+        console.log({ authors });
         console.log(typeof authors);
-        const newCard: CardType= {
-            id: 123, //new id function
+        const newCard: CardType = {
+            id: uuid(),
             title: title,
             authors: authors,
             time: time,
@@ -56,7 +51,7 @@ export const NewCardModal: React.FC<NewCardModalProps> = ({isOpen, setIsOpen}) =
             link: link,
             tags: tags,
             quote: quote
-        }
+        };
 
         dispatch(DataActions.postCard(newCard));
     };
@@ -65,66 +60,66 @@ export const NewCardModal: React.FC<NewCardModalProps> = ({isOpen, setIsOpen}) =
         <Dialog
             onClose={onClickExit}
             open={isOpen}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+            aria-labelledby='modal-modal-title'
+            aria-describedby='modal-modal-description'
         >
             <Box className={classes.root}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id='modal-modal-title' variant='h6' component='h2'>
                     Text in a modal
                 </Typography>
 
                 <TextField
                     required
-                    label="Tag / Title"
+                    label='Tag / Title'
                     onChange={(event) => {
                         setTitle(event.target.value);
                     }}
                 />
                 <TextField
                     required
-                    label="Authors"
+                    label='Authors'
                     onChange={(event) => {
-                        setAuthors(event.target.value);
+                        setAuthors([event.target.value]);
                     }}
                 />
                 <TextField
                     required
-                    label="Time"
+                    label='Time'
                     onChange={(event) => {
                         setTime(event.target.value);
                     }}
                 />
                 <TextField
                     required
-                    label="Publisher"
+                    label='Publisher'
                     onChange={(event) => {
                         setPublisher(event.target.value);
                     }}
                 />
                 <TextField
                     required
-                    label="Article Title"
+                    label='Article Title'
                     onChange={(event) => {
-                        setTitle(event.target.value);
+                        setArticleTitle(event.target.value);
                     }}
                 />
                 <TextField
                     required
-                    label="Link"
+                    label='Link'
                     onChange={(event) => {
                         setLink(event.target.value);
                     }}
                 />
                 <TextField
                     required
-                    label="Tags (comma seperated)"
+                    label='Tags (comma seperated)'
                     onChange={(event) => {
                         setTags(event.target.value.split(','));
                     }}
                 />
                 <TextField
                     required
-                    label="Quote"
+                    label='Quote'
                     onChange={(event) => {
                         setQuote(event.target.value);
                     }}
@@ -140,5 +135,5 @@ export const NewCardModal: React.FC<NewCardModalProps> = ({isOpen, setIsOpen}) =
 
 
         </Dialog>
-    )
-}
+    );
+};
