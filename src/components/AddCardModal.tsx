@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import {
     Typography,
-    Button,
-    Box, Dialog, TextField
+    Button,Box, Dialog, TextField, Checkbox, FormControlLabel
 } from '@material-ui/core';
-import { sideBarStyles } from '../style/sideBarStyles';
+import { newCardModalStyles } from '../style/newCardModalStyles';
 import { CardType } from '../state/dataTypes';
 import { useDispatch } from 'react-redux';
 import DataActions from '../state/DataActions';
@@ -18,7 +17,7 @@ interface AddCardModalProps {
 
 export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen }) => {
     const dispatch = useDispatch<any>();
-    const classes = sideBarStyles();
+    const classes = newCardModalStyles();
 
     //we need a new state variable for every input field in
     // order to pass the information to the redux store
@@ -32,6 +31,9 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen })
     const [quote, setQuote] = useState<string>('');
 
     const onClickExit = () => {
+        
+        //TODO: if card isn't saved, prompt users before clearing modal 
+        
         // function to toggle visibility of new card component
         setIsOpen(false);
 
@@ -39,8 +41,6 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen })
 
     const onSubmit = () => {
         // create a CardType object
-        console.log({ authors });
-        console.log(typeof authors);
         const newCard: CardType = {
             id: uuid(),
             title: title,
@@ -54,23 +54,27 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen })
         };
 
         dispatch(DataActions.postCard(newCard));
+        // close modal after save
+        onClickExit();
     };
 
     return (
         <Dialog
             onClose={onClickExit}
             open={isOpen}
-            aria-labelledby='modal-modal-title'
-            aria-describedby='modal-modal-description'
-        >
-            <Box className={classes.root}>
-                <Typography id='modal-modal-title' variant='h6' component='h2'>
-                    Text in a modal
-                </Typography>
+            className={classes.root}
+            fullWidth={true}
+            maxWidth={"md"}
 
-                <TextField
+        >
+            
+            <Box className={classes.box}>
+                <div className={classes.textColumn}>
+                    <TextField
                     required
                     label='Tag / Title'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setTitle(event.target.value);
                     }}
@@ -78,27 +82,47 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen })
                 <TextField
                     required
                     label='Authors'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setAuthors([event.target.value]);
                     }}
                 />
                 <TextField
-                    required
                     label='Time'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setTime(event.target.value);
                     }}
                 />
+                <div className={classes.proConDiv}>
+                <FormControlLabel
+                    control={<Checkbox />}
+                    label="Pro"
+                    labelPlacement="end"
+                />
+                <FormControlLabel
+                    value="top"
+                    control={<Checkbox />}
+                    label="Con"
+                    labelPlacement="end"
+                />
+                </div>
+                </div>
+                <div className={classes.textColumn}>
                 <TextField
-                    required
                     label='Publisher'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setPublisher(event.target.value);
                     }}
                 />
                 <TextField
-                    required
                     label='Article Title'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setArticleTitle(event.target.value);
                     }}
@@ -106,30 +130,51 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({ isOpen, setIsOpen })
                 <TextField
                     required
                     label='Link'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setLink(event.target.value);
                     }}
                 />
                 <TextField
-                    required
                     label='Tags (comma seperated)'
+                    variant='outlined'
+                    className={classes.textField}
                     onChange={(event) => {
                         setTags(event.target.value.split(','));
                     }}
                 />
+                </div>
+                <div className={classes.quoteColumn}>
                 <TextField
                     required
                     label='Quote'
+                    multiline
+                    variant='outlined'
+                    className={classes.quoteField}
+                    rows={8}
                     onChange={(event) => {
                         setQuote(event.target.value);
                     }}
                 />
-                <Button onClick={onSubmit}>
-                    <Typography> save </Typography>
-                </Button>
-                <Button onClick={onClickExit}>
-                    <Typography> close </Typography>
-                </Button>
+                    <div> 
+                        <Button 
+                            onClick={onClickExit}
+                            className={classes.closeButton}
+                            variant="outlined"
+                        >
+                            <Typography> Delete </Typography>
+                        </Button>
+                        <Button 
+                            onClick={onSubmit}
+                            className={classes.saveButton}
+                            variant="contained"
+                        >
+                            <Typography> save </Typography>
+                        </Button> 
+                    </div>
+                </div>
+
 
             </Box>
 
