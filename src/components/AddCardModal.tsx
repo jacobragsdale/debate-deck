@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import {
     Typography,
-    Button,
-    Card,Box, Dialog, TextField, Checkbox, FormControlLabel
+    Button,Box, Dialog, TextField, Checkbox, FormControlLabel
 } from '@material-ui/core';
 import { newCardModalStyles } from '../style/newCardModalStyles';
 import { CardType } from '../state/dataTypes';
