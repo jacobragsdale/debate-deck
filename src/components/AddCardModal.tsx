@@ -4,7 +4,6 @@ import {
     Button,
     Card,Box, Dialog, TextField, Checkbox, FormControlLabel
 } from '@material-ui/core';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { newCardModalStyles } from '../style/newCardModalStyles';
 import { CardType } from '../state/dataTypes';
 import { useDispatch } from 'react-redux';
