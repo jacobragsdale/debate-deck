@@ -1,6 +1,6 @@
-import React from 'react'
-import { Typography, Button } from '@material-ui/core'
-import { landerStyles } from '../style/landerStyles'
+import React from 'react';
+import { Typography, Button } from '@material-ui/core';
+import { landerStyles } from '../style/landerStyles';
 
 export const Lander: React.FC = () => {
     const classes = landerStyles();
@@ -19,5 +19,5 @@ export const Lander: React.FC = () => {
                 </Button>{' '}
             </div>
         </div>
-    )
-}
+    );
+};

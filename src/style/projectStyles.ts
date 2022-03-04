@@ -1,8 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 export const projectStyles = makeStyles({
     root: {
@@ -20,5 +19,4 @@ export const projectStyles = makeStyles({
         flexGrow: 1,
         minWidth: 350,
     },
-})
-
+});

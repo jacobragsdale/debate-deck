@@ -1,7 +1,7 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
-import { Header } from './Header'
-import { dashboardStyles } from '../style/dashboardStyles'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import { Header } from './Header';
+import { dashboardStyles } from '../style/dashboardStyles';
 
 export const Dashboard: React.FC = () => {
     const classes = dashboardStyles();
@@ -14,5 +14,5 @@ export const Dashboard: React.FC = () => {
                 </Typography>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Typography, Button, Grid, Paper, TextField, Link } from '@material-ui/core';
+import {
+    Typography,
+    Button,
+    Grid,
+    Paper,
+    TextField,
+    Link,
+} from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import DataActions from '../state/DataActions';
 import { useHistory } from 'react-router-dom';
@@ -20,8 +27,8 @@ export const SignIn: React.FC = () => {
     };
 
     return (
-        <div style = { {marginTop: '90px'} }>
-            <Grid container spacing={0} justify="center" direction="row" >
+        <div style={{ marginTop: '90px' }}>
+            <Grid container spacing={0} justify="center" direction="row">
                 <Grid item>
                     <Grid
                         container
@@ -35,14 +42,18 @@ export const SignIn: React.FC = () => {
                             elevation={2}
                             className="login-background"
                         >
-                            <Grid >
+                            <Grid>
                                 <Typography component="h1" variant="h5">
                                     Sign in
                                 </Typography>
                             </Grid>
-                            <Grid >
+                            <Grid>
                                 <form onSubmit={handleSubmit}>
-                                    <Grid container direction="column" spacing={2}>
+                                    <Grid
+                                        container
+                                        direction="column"
+                                        spacing={2}
+                                    >
                                         <Grid item>
                                             <TextField
                                                 type="email"
@@ -67,7 +78,9 @@ export const SignIn: React.FC = () => {
                                                 variant="outlined"
                                                 value={password}
                                                 onChange={(event) =>
-                                                    setPassword(event.target.value)
+                                                    setPassword(
+                                                        event.target.value
+                                                    )
                                                 }
                                                 required
                                             />
@@ -95,6 +108,5 @@ export const SignIn: React.FC = () => {
                 </Grid>
             </Grid>
         </div>
-
-    )
-}
+    );
+};

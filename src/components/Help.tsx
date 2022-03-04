@@ -1,7 +1,7 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
-import { Header } from './Header'
-import { helpStyles } from '../style/helpStyles'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import { Header } from './Header';
+import { helpStyles } from '../style/helpStyles';
 
 export const Help: React.FC = () => {
     const classes = helpStyles();
@@ -14,5 +14,5 @@ export const Help: React.FC = () => {
                 </Typography>
             </div>
         </div>
-    )
-}
+    );
+};

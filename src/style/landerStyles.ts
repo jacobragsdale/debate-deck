@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 export const landerStyles = makeStyles({
     root: {
@@ -34,4 +34,4 @@ export const landerStyles = makeStyles({
         minHeight: 40,
         margin: 'auto',
     },
-})
+});

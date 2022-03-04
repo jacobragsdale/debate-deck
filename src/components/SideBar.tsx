@@ -6,7 +6,7 @@ import {
     ListItem,
     Checkbox,
     ListItemText,
-    ListItemIcon
+    ListItemIcon,
 } from '@material-ui/core';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import { sideBarStyles } from '../style/sideBarStyles';
@@ -43,31 +43,38 @@ export const SideBar: React.FC = () => {
     return (
         <div className={classes.root}>
             <Button
-                variant='outlined'
-                size='large'
+                variant="outlined"
+                size="large"
                 startIcon={<AddCircleOutlineOutlinedIcon />}
                 className={classes.addIcon}
                 onClick={onAddCard}
             >
                 Add Card
             </Button>
-            <AddCardModal isOpen={modelIsOpen} setIsOpen={setModalIsOpen}>
-
-            </AddCardModal>
+            <AddCardModal
+                isOpen={modelIsOpen}
+                setIsOpen={setModalIsOpen}
+            ></AddCardModal>
             <div className={classes.filter}>
-                <Typography variant='h6' className={classes.filterTitle}>
+                <Typography variant="h6" className={classes.filterTitle}>
                     {' '}
                     Filter{' '}
                 </Typography>
                 <List className={classes.filterList}>
                     {tags.map((tag) => (
-                        <ListItem className={classes.filterListItem} key={tag.label}>
+                        <ListItem
+                            className={classes.filterListItem}
+                            key={tag.label}
+                        >
                             <ListItemIcon>
                                 <Checkbox
                                     className={classes.filterListCheckbox}
                                     checked={tag.isChecked}
                                     onChange={(checked) => {
-                                        onCheckboxClick(tag.label, checked.target.checked);
+                                        onCheckboxClick(
+                                            tag.label,
+                                            checked.target.checked
+                                        );
                                     }}
                                 />
                             </ListItemIcon>

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
-import DDUtils from '../DDUtils'
-import { CardListItem } from './CardListItem'
+import React from 'react';
+import { Typography } from '@material-ui/core';
+import DDUtils from '../DDUtils';
+import { CardListItem } from './CardListItem';
 import { CardType, TagType } from '../../state/dataTypes';
 import { useSelector } from 'react-redux';
-import { cardListStyles } from '../../style/card-list/cardListStyles'
+import { cardListStyles } from '../../style/card-list/cardListStyles';
 import { CardListUtils } from './CardListUtils';
 
 export const CardList: React.FC = () => {
@@ -12,7 +12,7 @@ export const CardList: React.FC = () => {
 
     // get cards from redux
     const cards: CardType[] = useSelector((state: any) => {
-        return state.cards || []
+        return state.cards || [];
     });
     // get search string from redux
     const searchString: string = useSelector((state: any) => {
@@ -32,8 +32,8 @@ export const CardList: React.FC = () => {
                 .filter((card) => CardListUtils.searchCard(searchString, card))
                 .filter((card) => CardListUtils.hasTag(tags, card))
                 .map((card) => (
-                <CardListItem card={card} key={card.id} />
-            ))}
+                    <CardListItem card={card} key={card.id} />
+                ))}
         </div>
-    )
-}
+    );
+};

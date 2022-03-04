@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { CardList } from './card-list/CardList'
-import { SideBar } from './SideBar'
-import { Header } from './Header'
-import { Hidden } from '@material-ui/core'
-import { useDispatch } from 'react-redux'
-import DataActions from '../state/DataActions'
-import { projectStyles } from '../style/projectStyles'
+import React, { useEffect } from 'react';
+import { CardList } from './card-list/CardList';
+import { SideBar } from './SideBar';
+import { Header } from './Header';
+import { Hidden } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import DataActions from '../state/DataActions';
+import { projectStyles } from '../style/projectStyles';
 
 export const Project: React.FC = () => {
     const classes = projectStyles();
@@ -28,5 +28,5 @@ export const Project: React.FC = () => {
                 <CardList />
             </div>
         </div>
-    )
-}
+    );
+};

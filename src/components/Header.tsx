@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
     AppBar,
     Toolbar,
@@ -7,13 +7,13 @@ import {
     IconButton,
     Box,
     Hidden,
-} from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
-import { useLocation } from 'react-router-dom'
-import { headerStyles } from '../style/headerStyles'
-import DDUtils from './DDUtils'
+} from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import { useLocation } from 'react-router-dom';
+import { headerStyles } from '../style/headerStyles';
+import DDUtils from './DDUtils';
 import { useDispatch } from 'react-redux';
 import ReduxActions from '../state/ReduxActions';
 
@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
 
     const handleSearch = (searchString: string) => {
         dispatch(ReduxActions.storeSearchString(searchString));
-    }
+    };
 
     return (
         <header className={classes.root}>
@@ -74,5 +74,5 @@ export const Header: React.FC = () => {
                 </Toolbar>
             </AppBar>
         </header>
-    )
-}
+    );
+};

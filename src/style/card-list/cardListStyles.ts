@@ -1,22 +1,22 @@
-import DDUtils from '../../components/DDUtils'
-import { makeStyles } from '@material-ui/core/styles'
+import DDUtils from '../../components/DDUtils';
+import { makeStyles } from '@material-ui/core/styles';
 
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 //light mode shadows
-let myCardBackground = '#ffffff'
+let myCardBackground = '#ffffff';
 let myNormalShadow =
-    '5px 5px 10px #999999, -5px -5px 10px #ffffff, inset 5px 5px 10px #999999, inset -5px -5px 10px #ffffff'
+    '5px 5px 10px #999999, -5px -5px 10px #ffffff, inset 5px 5px 10px #999999, inset -5px -5px 10px #ffffff';
 let myHoverShadow =
-    '8px 8px 16px #999999, -8px -8px 16px #ffffff, inset 0px 0px 0px #ffffff, inset 0px 0px 0px #999999'
+    '8px 8px 16px #999999, -8px -8px 16px #ffffff, inset 0px 0px 0px #ffffff, inset 0px 0px 0px #999999';
 
 if (theme.palette.type === 'dark') {
     //dark mode shadows
-    myCardBackground = 'linear-gradient(145deg, #2b2b2b, #333333)'
+    myCardBackground = 'linear-gradient(145deg, #2b2b2b, #333333)';
     myNormalShadow =
-        '5px 5px 10px #282828, -5px -5px 10px #383838, inset 5px 5px 10px #242424, inset -5px -5px 10px #3c3c3c'
+        '5px 5px 10px #282828, -5px -5px 10px #383838, inset 5px 5px 10px #242424, inset -5px -5px 10px #3c3c3c';
     myHoverShadow =
-        '8px 8px 16px #282828, -8px -8px 16px #383838, inset 0px 0px 0px #242424, inset 0px 0px 0px #3c3c3c'
+        '8px 8px 16px #282828, -8px -8px 16px #383838, inset 0px 0px 0px #242424, inset 0px 0px 0px #3c3c3c';
 }
 
 export const cardListStyles = makeStyles({
@@ -71,4 +71,4 @@ export const cardListStyles = makeStyles({
         textAlign: 'left',
         color: theme.palette.text.secondary,
     },
-})
+});

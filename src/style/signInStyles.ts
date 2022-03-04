@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 export const signInStyles = makeStyles({
     root: {
@@ -32,4 +32,4 @@ export const signInStyles = makeStyles({
         borderRadius: 10,
         margin: theme.spacing(1, 0, 0, 0),
     },
-})
+});

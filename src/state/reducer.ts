@@ -1,17 +1,17 @@
-import { ACTION_TYPES } from './actionTypes'
+import { ACTION_TYPES } from './actionTypes';
 import { CardType, StateType, TagType } from './dataTypes';
 
 const initialState: StateType = {
     cards: [],
     searchString: '',
     tags: [],
-    user: null
-}
+    user: null,
+};
 
 export type ActionType = {
-    type: string
-    payload?: any
-}
+    type: string;
+    payload?: any;
+};
 
 export const reducer = (
     state: StateType = initialState,
@@ -22,19 +22,19 @@ export const reducer = (
             return {
                 ...state,
                 cards: state.cards.concat(action.payload),
-            }
+            };
         case ACTION_TYPES.DELETE_CARD:
             return {
                 ...state,
                 cards: state.cards.filter((card: CardType) => {
-                    return card.id !== action.payload.id
+                    return card.id !== action.payload.id;
                 }),
-            }
+            };
         case ACTION_TYPES.STORE_SEARCH_STRING:
             return {
                 ...state,
-                searchString: action.payload
-            }
+                searchString: action.payload,
+            };
         case ACTION_TYPES.STORE_TAG:
             let hasTag = false;
             let newTags: TagType[] = state.tags.slice();
@@ -49,14 +49,14 @@ export const reducer = (
             }
             return {
                 ...state,
-                tags: newTags
-            }
+                tags: newTags,
+            };
         case ACTION_TYPES.STORE_USER:
             return {
                 ...state,
-                user: action.payload
-            }
+                user: action.payload,
+            };
         default:
-            return state
+            return state;
     }
-}
+};

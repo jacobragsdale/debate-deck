@@ -1,8 +1,7 @@
-import { makeStyles, alpha } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles, alpha } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 export const sideBarStyles = makeStyles({
     root: {
@@ -47,4 +46,4 @@ export const sideBarStyles = makeStyles({
     filterListCheckbox: {
         color: theme.palette.text.secondary,
     },
-})
+});
