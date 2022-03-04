@@ -1,6 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
-
+import { makeStyles } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
 const theme = DDUtils.getProjectTheme();
 export const dashboardStyles = makeStyles({
@@ -22,5 +21,4 @@ export const dashboardStyles = makeStyles({
         borderRadius: 24,
         background: theme.palette.background.paper,
     },
-})
-
+});

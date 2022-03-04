@@ -1,27 +1,26 @@
-import { makeStyles, alpha } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles, alpha } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 // Dark Mode / Light Mode
 
 //light mode shadows
-let myInsetBoxShadow = 'inset 2px 2px 5px #999999, inset -2px -2px 5px #ffffff'
-let mySearchBackground = 'linear-gradient(145deg, #e1e1e1, #ffffff)'
-let myBoxShadow = '5px 5px 10px #999999, -5px -5px 10px #ffffff'
+let myInsetBoxShadow = 'inset 2px 2px 5px #999999, inset -2px -2px 5px #ffffff';
+let mySearchBackground = 'linear-gradient(145deg, #e1e1e1, #ffffff)';
+let myBoxShadow = '5px 5px 10px #999999, -5px -5px 10px #ffffff';
 let myInsetSearchShadow =
-    'inset 2px 2px 5px #999999, inset -2px -2px 4px #ffffff'
+    'inset 2px 2px 5px #999999, inset -2px -2px 4px #ffffff';
 let myHoverSearchShadow =
-    'inset 4px 4px 8px #999999, inset -4px -4px 8px #ffffff'
+    'inset 4px 4px 8px #999999, inset -4px -4px 8px #ffffff';
 if (theme.palette.type === 'dark') {
     //dark mode shadows
-    myInsetBoxShadow = 'inset 2px 2px 5px #282828, inset -2px -2px 5px #5c5c5c'
-    mySearchBackground = 'linear-gradient(145deg, #3b3b3b, #474747)'
-    myBoxShadow = '5px 5px 10px #282828, -5px -5px 10px #5c5c5c'
+    myInsetBoxShadow = 'inset 2px 2px 5px #282828, inset -2px -2px 5px #5c5c5c';
+    mySearchBackground = 'linear-gradient(145deg, #3b3b3b, #474747)';
+    myBoxShadow = '5px 5px 10px #282828, -5px -5px 10px #5c5c5c';
     myInsetSearchShadow =
-        'inset 2px 2px 5px #282828, inset -2px -2px 4px #5c5c5c'
+        'inset 2px 2px 5px #282828, inset -2px -2px 4px #5c5c5c';
     myHoverSearchShadow =
-        'inset 4px 4px 8px #282828, inset -4px -4px 8px #5c5c5c'
+        'inset 4px 4px 8px #282828, inset -4px -4px 8px #5c5c5c';
 }
 // Styling
 export const headerStyles = makeStyles({

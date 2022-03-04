@@ -1,8 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles'
-import DDUtils from '../components/DDUtils'
+import { makeStyles } from '@material-ui/core/styles';
+import DDUtils from '../components/DDUtils';
 
-
-const theme = DDUtils.getProjectTheme()
+const theme = DDUtils.getProjectTheme();
 
 export const helpStyles = makeStyles({
     root: {
@@ -23,4 +22,4 @@ export const helpStyles = makeStyles({
         borderRadius: 24,
         background: theme.palette.background.paper,
     },
-})
+});
