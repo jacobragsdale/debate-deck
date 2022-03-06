@@ -1,5 +1,4 @@
 import ReduxActions from './ReduxActions';
-import { mockCards } from './mockData/mockCards';
 import { mockTags } from './mockData/mockTags';
 import { CardType } from './dataTypes';
 
@@ -7,10 +6,26 @@ import { CardType } from './dataTypes';
 // to fetch / store things in the database
 // for now we are using mock data stored locally
 export default class DataActions {
-    static fetchCards = () => (dispatch: any) => {
-        mockCards.forEach((card) => {
-            dispatch(ReduxActions.storeCard(card));
-        });
+    static fetchUserData = () => (dispatch: any) => {
+        return fetch('http://ragsdaledev.com:8080/api/fetchUserData', {
+            method: 'POST',
+            body: JSON.stringify({ id: 1 }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                data?.forEach((card: any) => {
+                    card.authors = card.authors.split(',');
+                    card.tags = card.tags.split(',');
+
+                    dispatch(ReduxActions.storeCard(card));
+                });
+            });
     };
 
     static fetchTags = () => (dispatch: any) => {
@@ -27,7 +42,28 @@ export default class DataActions {
         };
 
     static postCard = (card: CardType) => (dispatch: any) => {
-        //this will dispatch the data to the redux store
-        dispatch(ReduxActions.storeCard(card));
+        return fetch('http://ragsdaledev.com:8080/api/createCard', {
+            method: 'POST',
+            body: JSON.stringify({
+                userId: 1,
+                title: card.title,
+                authors: '', //TODO: handle authors
+                date: card.date,
+                publisher: card.publisher,
+                articleTitle: card.articleTitle,
+                link: card.link,
+                tags: '', //TODO: handle tags
+                quote: card.quote,
+            }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                dispatch(ReduxActions.storeCard(card)); //TODO: figure out why this isn't working
+            });
     };
 }

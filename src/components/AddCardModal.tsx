@@ -13,7 +13,6 @@ import { newCardModalStyles } from '../style/newCardModalStyles';
 import { CardType } from '../state/dataTypes';
 import { useDispatch } from 'react-redux';
 import DataActions from '../state/DataActions';
-import { v4 as uuid } from 'uuid';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import moment from 'moment';
 
@@ -51,7 +50,7 @@ export const AddCardModal: React.FC<AddCardModalProps> = ({
     const onSubmit = () => {
         // create a CardType object
         const newCard: CardType = {
-            id: uuid(),
+            id: 0,
             title: title,
             authors: authors,
             date: moment(date).format('YYYY-MM-DD'),

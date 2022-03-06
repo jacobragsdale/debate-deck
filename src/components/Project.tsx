@@ -12,7 +12,7 @@ export const Project: React.FC = () => {
     const dispatch = useDispatch<any>();
 
     useEffect(() => {
-        dispatch(DataActions.fetchCards());
+        dispatch(DataActions.fetchUserData());
         dispatch(DataActions.fetchTags());
     }, [dispatch]);
 
